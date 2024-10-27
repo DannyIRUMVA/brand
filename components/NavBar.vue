@@ -1,6 +1,36 @@
+<script setup>
+import { ref } from "vue";
+const isDropdownOpen = ref(false);
+const isDropdownOpen2 = ref(false);
+const isMenuOpen = ref(false);
+
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value;
+}
+function toggleDropdown2() {
+  isDropdownOpen2.value = !isDropdownOpen2.value;
+}
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value;
+}
+
+function handleClickOutside(event) {
+  if (dropdownMenu.value && !dropdownMenu.value.contains(event.target)) {
+    isDropdownOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
+</script>
 <template>
   <div
-    class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 shadow-md"
+    class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 rounded-md bg-gray-900 shadow-md"
   >
     <div class="relative flex items-center justify-between">
       <a
@@ -21,31 +51,146 @@
             >Pricing</NuxtLink
           >
         </li>
-        <li>
+        <li class="relative">
           <NuxtLink
-            to="/service"
-            aria-label="Our product"
-            title="Our product"
-            class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >Capabilities</NuxtLink
+            id="dropdownDefaultButton"
+            class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+            @click="toggleDropdown"
           >
+            Capabilities
+            <svg
+              class="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </NuxtLink>
+
+          <div
+            v-if="isDropdownOpen"
+            id="dropdown"
+            class="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+          >
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Settings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Earnings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="relative">
+          <NuxtLink
+            id="dropdownDefaultButton"
+            class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+            @click="toggleDropdown2"
+          >
+            Our Work
+            <svg
+              class="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </NuxtLink>
+
+          <div
+            v-if="isDropdownOpen2"
+            id="dropdown"
+            class="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+          >
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Settings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Earnings</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
         </li>
         <li>
           <NuxtLink
-            to="/work"
-            aria-label="Product pricing"
-            title="Product pricing"
-            class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >Our Work</NuxtLink
-          >
-        </li>
-        <li>
-          <NuxtLink
-            to="/About"
+            to="/about"
             aria-label="About us"
             title="About us"
             class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
             >About</NuxtLink
+          >
+        </li>
+        <li>
+          <NuxtLink
+            to="/contact"
+            aria-label="Contact Us"
+            title="Contact us"
+            class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+            >Contact</NuxtLink
           >
         </li>
       </ul>
@@ -182,12 +327,3 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      isMenuOpen: false,
-    };
-  },
-};
-</script>

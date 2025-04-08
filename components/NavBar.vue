@@ -39,18 +39,15 @@ onBeforeUnmount(() => {
         title="Company"
         class="inline-flex items-center"
       >
-        <img src="public/logo.png" alt="logo" width="60" height="60" />
+        <!-- <img
+          src="public/Brandplanet_logo-03.png"
+          alt="logo"
+          width="130"
+          height="60"
+        /> -->
+        <svg-icon name="Brandplanet_logo-02" />
       </a>
-      <ul class="flex items-center hidden space-x-8 lg:flex">
-        <li>
-          <NuxtLink
-            to="/pricing"
-            aria-label="Our product"
-            title="Our product"
-            class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >Pricing</NuxtLink
-          >
-        </li>
+      <ul class="items-center hidden space-x-8 lg:flex">
         <li class="relative">
           <NuxtLink
             id="dropdownDefaultButton"

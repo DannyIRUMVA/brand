@@ -1,20 +1,20 @@
 <script setup lang="ts">
 useHead({
-  title: 'Brand Planet Studio',
-  meta: [
-    { name: 'Brand Planet', content: 'Biggest branding agency' }
-  ],
+  title: "Brand Planet Ltd",
+  meta: [{ name: "Brand Planet", content: "Biggest branding agency" }],
   bodyAttrs: {
-    class: 'test'
+    class: "test",
   },
-  script: [ { innerHTML: 'console.log(\'Hello world\')' } ]
-})
+  script: [
+    { innerHTML: "console.log('Hello world this belongs to the company')" },
+  ],
+});
 </script>
 
 <template>
-  <div>
-    <NuxtPage/>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style>
@@ -28,4 +28,3 @@ useHead({
   filter: blur(1rem);
 }
 </style>
-

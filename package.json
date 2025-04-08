@@ -14,7 +14,9 @@
   "dependencies": {
     "@nuxt/fonts": "^0.10.0",
     "@nuxtjs/svg-sprite": "^1.0.2",
+    "gsap": "^3.12.7",
     "nuxt": "^3.13.0",
+    "three": "^0.175.0",
     "vue": "latest",
     "vue-router": "latest"
   },

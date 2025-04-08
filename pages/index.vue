@@ -1,11 +1,9 @@
 <script setup>
-import MainLayout from "../layouts/MainLayout.vue";
-import Section from "../components/Section.vue";
+import Planet from "@/components/Planet.vue";
+import MainLayout from "~/layouts/MainLayout.vue";
 </script>
 <template>
   <MainLayout>
-    <Section />
+    <Planet />
   </MainLayout>
 </template>
-<style>
-</style>

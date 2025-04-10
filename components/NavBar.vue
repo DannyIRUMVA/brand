@@ -8,7 +8,7 @@ const iconButtonClasses = "p-2 rounded-full text-white hover:bg-[#196453] focus:
 
 <template>
   <div class="md:flex">
-    <div :class="{'w-16': isCollapsed, 'w-64': !isCollapsed}" class="relative hidden sm:block h-full bg-gray-800 transition-width duration-200 md:h-auto md:w-auto md:mx-auto md:my-4 md:rounded-lg">
+    <div :class="{'w-16': isCollapsed, 'w-64': !isCollapsed}" class="relative hidden sm:block h-full bg-[#68b4a4] transition-width duration-200 md:h-auto md:w-auto md:mx-auto md:my-4 md:rounded-lg">
       <button
         @click="isCollapsed = !isCollapsed"
         aria-label="Toggle Menu"
@@ -45,7 +45,7 @@ const iconButtonClasses = "p-2 rounded-full text-white hover:bg-[#196453] focus:
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
             </svg>
-            <span v-if="!isCollapsed" class="ml-4">Capabilities</span>
+            <span v-if="!isCollapsed" class="ml-4">Service</span>
           </NuxtLink>
         </li>
         <li>
@@ -84,7 +84,7 @@ const iconButtonClasses = "p-2 rounded-full text-white hover:bg-[#196453] focus:
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            <span v-if="!isCollapsed" class="ml-4">Contact Us</span>
+            <span v-if="!isCollapsed" class="ml-4">Contact</span>
           </NuxtLink>
         </li>
         <li>
@@ -105,7 +105,7 @@ const iconButtonClasses = "p-2 rounded-full text-white hover:bg-[#196453] focus:
     
     <!-- Main Content -->
     <div class="flex-grow">
-      <div class="md:hidden flex justify-between  bg-[#339a82] top-0 p-2">
+      <div class="md:hidden flex justify-between  bg-[#68b4a4] inset-0 -mt-16 p-1 max-w-auto mx-auto">
         <NuxtLink
           to="/"
           aria-label="Home"

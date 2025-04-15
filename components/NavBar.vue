@@ -8,7 +8,7 @@ const iconButtonClasses = "p-2 rounded-full text-white hover:bg-[#196453] focus:
 
 <template>
   <div class="md:flex">
-    <div :class="{'w-16': isCollapsed, 'w-64': !isCollapsed}" class="relative hidden sm:block h-full bg-[#68b4a4] transition-width duration-200 md:h-auto md:w-auto md:mx-auto md:my-4 md:rounded-lg">
+    <div :class="{'w-16': isCollapsed, 'w-64': !isCollapsed}" class="relative hidden sm:block h-full bg-[#68b4a4] transition-width duration-200 md:h-auto md:w-auto md:mx-auto md:my-4">
       <button
         @click="isCollapsed = !isCollapsed"
         aria-label="Toggle Menu"
